@@ -1,6 +1,9 @@
 const express = require('express')
-const User = require('../models/Employee.model')
+const Employee = require('../models/employee.model')
 const { response } = require('../app')
+const router = express.Router()
+
+
 
 // Get to client sigup form
 
@@ -15,18 +18,11 @@ router.get('/signup', (req, res, next) => {
 // Get to client login form
 
 router.get("./login", (req, res, next) => {
-res.render("auth/login")
+    res.render("./login")
 
 })
 
 // Post for working with the values inside the DB for login
-
-
-
-
-
-
-
 
 
 
