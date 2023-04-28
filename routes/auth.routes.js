@@ -28,8 +28,8 @@ router.post('/signup', async (req, res, next) => {
       const passwordHash = bcryptjs.hashSync(req.body.password, salt)
       
       await Employee.create({username: req.body.username, passwordHash: passwordHash})
-      console.log("New employee", newEmployee)
-      res.redirect('/auth/login')
+      console.log("New employee", newSignup)
+      res.redirect('./login')
 
     } else {
       res.render('auth/signup', {errorMessage: "Password should be stronger!", data: {username: req.body.username}})
@@ -52,20 +52,28 @@ router.get('/login', (req, res, next) => {
 
 // Post for working with the values inside the DB for login
 
- router.post('/login', async(req, res, next) => {
-  const user = await Employee.findOne({username: req.body.username})
-  console.log(user)
-})
-/*if(!!user) {
-
-  if (bcryptjs.compareSync(req.body.password, user.passwordHash)) {
-
+router.post('/login', async (req, res, next) => {
+  try {
+    const user = await Employee.findOne({ username: req.body.username })
+    console.log(user)
+    if (!!user) {
+ 
+      if (bcryptjs.compareSync(req.body.password, user.passwordHash)) {
+       
+        req.session.user = { username: user.username }
+        res.redirect('/profile')
+      } else {
+        
+        res.render('auth/login', { errorMessage: 'Wrong password' })
+      }
+    } else {
+      
+      res.render('auth/login', { errorMessage: 'User does not exists' })
+    }
+  } catch (error) {
+    console.log(error)
   }
-
-} else {
-  res.render('auth/login', {errorMessage: "User not found"})
-}
-*/
+})
 
 
 module.exports = router
