@@ -43,7 +43,6 @@ router.post('/signup', async (req, res, next) => {
   }
 })
 
-
 // Get to client login form
 
 router.get('/login', (req, res, next) => {

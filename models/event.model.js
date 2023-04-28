@@ -1,20 +1,19 @@
 const { Schema, model } = require("mongoose");
 
 // TODO: Please make sure you edit the User model to whatever makes sense in this case
-const employeeSchema = new Schema(
+const eventSchema = new Schema(
   {
-    username: {
+    comment: {
       type: String,
-      trim: true,
       required: false,
-      unique: true
     },
-    passwordHash: {
-      type: String,
+    checkin: {
+      type: Boolean,
+      required: true,
+    },
+    checkout: {
+      type: Boolean,
       required: true
-    },
-    role: {
-      type: String,
     },
   },
   {
@@ -23,6 +22,6 @@ const employeeSchema = new Schema(
   }
 );
 
-const Employee = model("Employee", employeeSchema);
+const Event = model("Event", eventSchema);
 
-module.exports = Employee;
+module.exports = Event;
