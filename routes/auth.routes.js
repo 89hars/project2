@@ -35,7 +35,6 @@ router.post('/signup', async (req, res, next) => {
       res.render('auth/signup', {errorMessage: "Password should be stronger!", data: {username: req.body.username}})
     }
   } else {
-
     res.render('auth/signup', {errorMessage: "User name already exist"})
   }
 
@@ -52,6 +51,11 @@ router.get('/login', (req, res, next) => {
 })
 
 // Post for working with the values inside the DB for login
+
+ router.post('/login', async(req, res, next) => {
+  const user = await Employee.find({username: req.body.username})
+  console.log(user)
+})
 
 
 
