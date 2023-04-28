@@ -13,20 +13,24 @@ router.get('/signup', (req, res, next) => {
 
 // Post values given by client in the signup form 
 
+router.post('/signup', async (req, res, next) => {
+  try {
+    const newEmployee = await Employee.create(req.body)
+    console.log("New employee", newEmployee)
+    res.redirect('/auth/login')
+  } catch (error) {
+    console.log(error)
+  }
+})
 
 
 // Get to client login form
 
-router.get("./login", (req, res, next) => {
-    res.render("./login")
-
+router.get('/login', (req, res, next) => {
+    res.render('./auth/login')
 })
 
 // Post for working with the values inside the DB for login
-
-
-
-
 
 
 
