@@ -2,6 +2,8 @@ const express = require('express')
 const Employee = require('../models/employee.model')
 const { response } = require('../app')
 const router = express.Router()
+const bcryptjs = require('bcryptjs')
+const saltRounds = 10
 
 
 
@@ -14,8 +16,10 @@ router.get('/signup', (req, res, next) => {
 // Post values given by client in the signup form 
 
 router.post('/signup', async (req, res, next) => {
+  const salt = bcryptjs.genSaltSync(saltRounds)
+  const passwordHash = bcryptjs.hashSync(req.body.password, salt)
   try {
-    const newEmployee = await Employee.create(req.body)
+    const newEmployee = await Employee.create({username: req.body.username, passwordHash: passwordHash})
     console.log("New employee", newEmployee)
     res.redirect('/auth/login')
   } catch (error) {
