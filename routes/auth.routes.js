@@ -53,11 +53,19 @@ router.get('/login', (req, res, next) => {
 // Post for working with the values inside the DB for login
 
  router.post('/login', async(req, res, next) => {
-  const user = await Employee.find({username: req.body.username})
+  const user = await Employee.findOne({username: req.body.username})
   console.log(user)
 })
+/*if(!!user) {
 
+  if (bcryptjs.compareSync(req.body.password, user.passwordHash)) {
 
+  }
+
+} else {
+  res.render('auth/login', {errorMessage: "User not found"})
+}
+*/
 
 
 module.exports = router
