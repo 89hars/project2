@@ -16,12 +16,23 @@ router.get('/signup', (req, res, next) => {
 // Post values given by client in the signup form 
 
 router.post('/signup', async (req, res, next) => {
+  
   const salt = bcryptjs.genSaltSync(saltRounds)
   const passwordHash = bcryptjs.hashSync(req.body.password, salt)
   try {
+ const newSignup = await Employee.findOne({username: req.body.username})
+ console.log(newSignup)
+
+  if(!newSignup) {
     const newEmployee = await Employee.create({username: req.body.username, passwordHash: passwordHash})
     console.log("New employee", newEmployee)
     res.redirect('/auth/login')
+  } else {
+
+    res.render('auth/signup', {errorMessage: "User name already exist"})
+  }
+
+    
   } catch (error) {
     console.log(error)
   }
