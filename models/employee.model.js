@@ -9,7 +9,7 @@ const employeeSchema = new Schema(
       required: false,
       unique: true
     },
-    password: {
+    passwordHash: {
       type: String,
       required: true
     },
