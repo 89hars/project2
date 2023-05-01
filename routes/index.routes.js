@@ -9,6 +9,7 @@ router.get("/", (req, res, next) => {
 
 router.get("/profile", (req, res, next) => {
   console.log(req.session);
+  res.render("")
 });
 
 module.exports = router;

@@ -1,5 +1,4 @@
 <div id="form">
-<<<<<<< HEAD
     <h2>Sign Up</h2>
     <form action="/auth/signup" method="POST">
    
@@ -12,20 +11,6 @@
       </label>
    
       <button type="submit">signup</button>
-=======
-    <h2>Signup</h2>
-    <form action="/auth/signup" method="POST">
-   
-      <label> Username
-        <input type="text" name="username" placeholder="username" />
-      </label>
-   
-      <label> Password
-        <input type="password" name="password" placeholder="********" />
-      </label>
-   
-      <button type="submit">Create Employee Account</button>
->>>>>>> fede
       <% if (typeof errorMessage !== 'undefined') { %>
         <p style="color: red"><%= errorMessage %></p>
         <% } %>
