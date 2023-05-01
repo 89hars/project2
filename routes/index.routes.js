@@ -1,15 +1,23 @@
 const express = require('express');
 const router = express.Router();
+const { isLoggedIn } = require('../middleware/route-guard')
 
 /* GET home page */
-router.get("/", (req, res, next) => {
+router.get('/', (req, res, next) => {
   res.render("index");
 });
 
 
-router.get("/profile", (req, res, next) => {
-  console.log(req.session);
-  res.render("")
+router.get('/profile', isLoggedIn, (req, res, next) => {
+  console.log(req.session)
+  res.render("profile", { user: req.session.user })
 });
+
+/*router.get('logout', (req,res, next) => {
+  req.session.destroy(err => {
+    if (err) next(err)
+    res.redirect('/')
+  })
+});*/
 
 module.exports = router;
