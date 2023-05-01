@@ -1,5 +1,6 @@
 const express = require('express')
 const Employee = require('../models/employee.model')
+//const Event = require('../models/event.model')
 const { response } = require('../app')
 const router = express.Router()
 const bcryptjs = require('bcryptjs')
@@ -74,6 +75,17 @@ router.post('/login', async (req, res, next) => {
   }
 });
 
-
+/*router.post('/profile', async (req,res) => {
+  try {
+    // Create a new event document with the eventName set to "checkin"
+    const event = new Event({ eventName: 'checkin' });
+    //Save the event document to the database
+    await event.create(req.body.eventName);
+    // Redirect back to the profile page with success message
+    res.redirect('./profile', { msg: 'Checkin Successful' });
+  } catch (error) {
+    console.error(error);
+  }
+});*/
 
 module.exports = router
