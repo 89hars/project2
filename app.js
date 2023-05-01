@@ -29,6 +29,7 @@ const authRoutes = require("./routes/auth.routes")
 app.use("/auth", authRoutes)
 
 
+
 // const aboutRoutes = require("./routes/contact.routes")
 // app.use("/contact", aboutRoutes)
 
