@@ -26,17 +26,8 @@ const indexRoutes = require('./routes/index.routes')
 app.use('/', indexRoutes)
 
 const authRoutes = require("./routes/auth.routes")
-<<<<<<< HEAD
-app.use("/auth", authRoutes)
-
-
-
-// const aboutRoutes = require("./routes/contact.routes")
-// app.use("/contact", aboutRoutes)
-=======
 const { isLoggedOut } = require('./middleware/route-guard')
 app.use("/auth", isLoggedOut, authRoutes)
->>>>>>> fede
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
