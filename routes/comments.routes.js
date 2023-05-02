@@ -13,7 +13,7 @@ router.get('/', async(req, res) => {
   } catch (error) {
     console.log(error)
   }
-
+  
   })
 
 // Create the post in the DB with id from user

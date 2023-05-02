@@ -74,10 +74,29 @@ router.post('/login', async (req, res, next) => {
 });
 
 
-router.get('/logout', (req, res) => {
-req.session.destroy()
-res.redirect('/')
-})
+router.get('/logout', (req,res, next) => {
+  req.session.destroy(err => {
+    if (err) next(err)
+    res.redirect('/')
+  })
+});
+
+
+
+ // Log Out 
+/*
+router.get('/logout', (req, res, next) => {
+  req.session.destroy(err => {
+    if (err) next(err);
+    res.clearCookie('connect.sid'); 
+    res.redirect('/'); 
+  });
+});
+
+
+*/
+
+
 
 
 module.exports = router
