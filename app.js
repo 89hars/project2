@@ -22,12 +22,29 @@ const projectName = 'project2'
 app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`
 
 // 👇 Start handling routes here
+
+//home
 const indexRoutes = require('./routes/index.routes')
 app.use('/', indexRoutes)
 
+
+// log in & sign up
 const authRoutes = require("./routes/auth.routes")
-const { isLoggedOut } = require('./middleware/route-guard')
+const { isLoggedOut, isLoggedIn } = require('./middleware/route-guard')
 app.use("/auth", isLoggedOut, authRoutes)
+
+// Comments
+const commentsRoutes = require("./routes/comments.routes")
+app.use("/comments", isLoggedIn, commentsRoutes)
+
+/*
+// Check in
+const checksRoutes = require('./routes/check.routes')
+app.use("/checkedin", isLoggedIn, checksRoutes)
+
+*/
+
+// No check out Route, check out should unlog you
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
