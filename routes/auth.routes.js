@@ -1,6 +1,5 @@
 const express = require('express')
 const Employee = require('../models/employee.model')
-const { response } = require('../app')
 const router = express.Router()
 const bcryptjs = require('bcryptjs')
 const saltRounds = 10
