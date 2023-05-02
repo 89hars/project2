@@ -31,11 +31,11 @@ app.use('/', indexRoutes)
 // log in & sign up
 const authRoutes = require("./routes/auth.routes")
 const { isLoggedOut, isLoggedIn } = require('./middleware/route-guard')
-app.use("/auth", isLoggedOut, authRoutes)
+app.use("/auth", authRoutes)
 
 // Comments
 const commentsRoutes = require("./routes/comments.routes")
-app.use("/comments", isLoggedIn, commentsRoutes)
+app.use("/comments", commentsRoutes)
 
 /*
 // Check in

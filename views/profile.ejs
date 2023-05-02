@@ -5,10 +5,13 @@
 <button type="submit">Checkin</button>
 <br>
 <br>
-<button type="submit">Checkout</button>
+<button type="submit">Checkout</button> </form>
 <br>
 <br>
-<button type="submit"><a href="/comments">Go to Comments Page</a></button>
 
-
+<form action="/comments" method="POST">
+    <input type="text" name="content" required placeholder="Leave a comment here..."/>
+    <button type="submit">Go to Comments Page</button>
+    </form>
 </form>
+

@@ -58,7 +58,7 @@ router.post('/login', async (req, res, next) => {
  
       if (bcryptjs.compareSync(req.body.password, user.passwordHash)) {
        
-        req.session.user = { username: user.username }
+        req.session.user = { username: user.username, _id:user._id  }
         res.redirect('/profile')
       } else {
         
@@ -73,6 +73,11 @@ router.post('/login', async (req, res, next) => {
   }
 });
 
+
+router.get('/logout', (req, res) => {
+req.session.destroy()
+res.redirect('/')
+})
 
 
 module.exports = router
