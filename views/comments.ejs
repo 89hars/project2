@@ -1,10 +1,15 @@
-
 <body style="background-color:rgb(254, 254, 159);"></body>
+<button><a href="/profile">Go Back to Profile</a></button>
+<br>
+<br>
 <img src="/images/Logo.png"width="120"/>
-<h1>Profile Page</h1>
+<h1>Events Dashboard</h1>
 <h2>Hello <%= user %></h2>
 <form action="/comments" method="POST">
-<input type="text" name="" required placeholder="Leave a comment here..."/>
-<button type="submit">submit</button>
+<div>
+    <ul><% if (successMessage) { %>
+        <li><%= successMessage %></li>
+    <% } %>
+</ul>
+</div>
 </form>
-
