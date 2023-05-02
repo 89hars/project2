@@ -4,9 +4,10 @@ const { Schema, model } = require("mongoose");
 // TODO: Please make sure you edit the User model to whatever makes sense in this case
 const commentSchema = new Schema(
   {
-    autor: {
-      type: String,
+    author: {
+      type: mongoose.Types.ObjectId,
       required: true,
+      ref: 'Employee',
     },
     content: {
         type: String,
