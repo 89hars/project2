@@ -36,7 +36,11 @@ app.use("/auth", authRoutes)
 // Comments
 const commentsRoutes = require("./routes/comments.routes")
 app.use("/comments", commentsRoutes)
+//get allComments
 
+// Checkin & Checkout
+const checkRoutes = require("./routes/check.routes")
+app.use("/checks", checkRoutes)
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
