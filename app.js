@@ -37,14 +37,6 @@ app.use("/auth", authRoutes)
 const commentsRoutes = require("./routes/comments.routes")
 app.use("/comments", commentsRoutes)
 
-/*
-// Check in
-const checksRoutes = require('./routes/check.routes')
-app.use("/checkedin", isLoggedIn, checksRoutes)
-
-*/
-
-// No check out Route, check out should unlog you
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
