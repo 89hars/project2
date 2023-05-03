@@ -13,14 +13,13 @@ router.get('/', isLoggedIn, async(req, res) => {
   } catch (error) {
     console.log(error)
   }
-  
   })
 
 // Create the post in the DB with id from user
 
   router.post('/', isLoggedIn, async(req, res, next) => {
     try{
-    console.log(req.body, "u are here")
+    console.log(req.body, "its working my friend")
     await Comment.create({content: req.body.content, author: req.session.user._id})
     res.redirect('/comments')
     }catch (error) {

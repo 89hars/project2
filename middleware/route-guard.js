@@ -1,18 +1,23 @@
-//check if user is logged in
-const isLoggedIn = (req, res, next) => {
-    if (!req.session.user) {
-        return res.redirect('/auth/login')
-    }
-    next()
-}
+// Middleware function to check for login
 
-// redirecting logged in user to the profile page
-const isLoggedOut = (req, res, next) => {
-    if (req.session.user) {
-        return res.redirect('/')
+const isLoggedIn = (req, res, next) => {
+    if (req.session && req.session.user) {
+      next(); 
+    } else {
+      res.redirect('/'); 
     }
-    next ()
-}
+  };
+  
+  // Middleware function to check for logut
+
+  const isLoggedOut = (req, res, next) => {
+    if (!req.session || !req.session.user) {
+      next(); 
+    } else {
+      res.redirect('/'); 
+    }
+  };
+  
 
 module.exports = {
     isLoggedIn,
