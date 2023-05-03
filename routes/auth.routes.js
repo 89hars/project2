@@ -46,6 +46,7 @@ router.post('/signup', isLoggedOut, async (req, res, next) => {
 // Get to client login form
 
 router.get('/login', isLoggedOut, (req, res, next) => {
+  console.log(__dirname);
     res.render('auth/login')
 })
 
