@@ -21,7 +21,7 @@
     <% allComments.forEach(comment => { %>
       <% const date = new Date(comment.createdAt) %>
     <li> - <%= comment.author.username %> Posted: <%= comment.content %> on <%= date.toLocaleString('en-US', { timeZone: 'UTC', month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false }) %> 
-      <form action="/delete <%= comment._id %>" method="POST">
+      <form action="/comments/delete/<%= comment._id %>" method="POST">
         <button>Delete</button>
       </form></li>
     <% }) %>

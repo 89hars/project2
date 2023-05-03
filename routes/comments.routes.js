@@ -27,10 +27,10 @@ router.get('/', async(req, res) => {
 
   
   //Delete a comment
-  router.post('/delete', isLoggedIn, async(req, res, next) => {
+  router.post('/delete/:id', isLoggedIn, async(req, res, next) => {
     try{
     console.log(req.body, "trying to delete here")
-    await Comment.findByIdAndDelete(req.params.comment._Id)
+    await Comment.findByIdAndDelete(req.params.id)
     res.redirect('/comments')
     }catch (error) {
     console.log(error)
