@@ -11,7 +11,7 @@ const pwdRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/
 // Get to client sigup form
 
 router.get('/signup', isLoggedOut, (req, res, next) => {
-    res.render('auth/signup')
+    res.render('/auth/signup')
   })
 
 // Post values given by client in the signup form 
