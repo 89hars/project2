@@ -10,7 +10,7 @@ const pwdRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/
 // Get to client sigup form
 
 router.get('/signup', (req, res, next) => {
-    res.render('./auth/signup')
+    res.render('auth/signup')
   })
 
 // Post values given by client in the signup form 
@@ -28,7 +28,7 @@ router.post('/signup', async (req, res, next) => {
       
       await Employee.create({username: req.body.username, passwordHash: passwordHash})
       console.log("New employee", newSignup)
-      res.redirect('./login')
+      res.redirect('/login')
 
     } else {
       res.render('auth/signup', {errorMessage: "Password should be stronger!", data: {username: req.body.username}})
@@ -45,7 +45,7 @@ router.post('/signup', async (req, res, next) => {
 // Get to client login form
 
 router.get('/login', (req, res, next) => {
-    res.render('./auth/login')
+    res.render('auth/login')
 })
 
 // Post for working with the values inside the DB for login
