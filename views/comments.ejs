@@ -1,16 +1,12 @@
-
-<body style="background-color:rgb(254, 254, 159);"></body>
-
-  <form method="get" action="/auth/logout">
+<link rel="stylesheet" href="/stylesheets/style.css" />
+<body></body>
+<div class="bg-container"></div>
+<img src="/images/Logo.png"width="120"/>
+<form method="get" action="/auth/logout">
     <button type="submit">Logout</button>
   </form>
-
-<img src="/images/Logo.png"width="120"/>
-
 <h1>Comments Dashboard</h1>
-
-<h2>Hello <%= user %></h2>
-
+<h2>Hello <%= user %>!</h2>
 <div id="profile-button"><form method="GET" action="/profile">
   <button type="submit">Go Back to Profile</button>
 </form>
