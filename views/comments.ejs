@@ -1,23 +1,25 @@
 
 <body style="background-color:rgb(254, 254, 159);"></body>
+
 <img src="/images/Logo.png"width="120"/>
 <h1>Event Dashboard</h1>
 <h2>Hello <%= user %></h2>
-
-<ul id="commentool">
-    <% allComments.forEach(comment => { %>
-      <li><%= comment.content %> - <%= comment.author.username %></li>
-    <% }) %>
-  </ul>
-  
   <form method="get" action="/auth/logout">
     <button type="submit">Logout</button>
   </form>
+<br>
+<br>
+<ul id="commentool">
+    <% allComments.forEach(comment => { %>
+    <li><%= comment.content %> - <%= comment.author.username %></li>
+    <% }) %>
+</ul>
+<br>
+<br>
   <ul id="checkintool">
     <% allChecks.forEach((checkin) => { %>
-        <li>
+    <li>
             <p>  <%- checkin.eventName %> <%- checkin.createdAt %></p>
-        </li>
+    </li>
    <% }) %>
-
 </ul>

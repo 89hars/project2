@@ -1,0 +1,10 @@
+<form method="get" action="/auth/logout">
+    <button type="submit">Logout</button>
+  </form>
+  <ul id="checkintool">
+    <% allChecks.forEach((checkin) => { %>
+    <li>
+            <p>  <%- checkin.eventName %> <%- checkin.createdAt %></p>
+    </li>
+   <% }) %>
+</ul>
