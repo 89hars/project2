@@ -25,5 +25,17 @@ router.get('/', async(req, res) => {
     }
   })
 
+  /*
+  //Delete a comment
+  router.post('/delete', isLoggedIn, async(req, res, next) => {
+    try{
+    console.log(req.body, "its updating")
+    await Comment.findByIdAndDelete({content: req.body.content, author: req.session.user._id})
+    res.redirect('/delete')
+    }catch (error) {
+    console.log(error)
+    }
+  })*/
+
 
 module.exports = router;
