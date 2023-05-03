@@ -4,7 +4,7 @@
 <h1>Event Dashboard</h1>
 <h2>Hello <%= user %></h2>
 
-<ul id="commentul">
+<ul id="commentool">
     <% allComments.forEach(comment => { %>
       <li><%= comment.content %> - <%= comment.author.username %></li>
     <% }) %>
@@ -13,7 +13,7 @@
   <form method="get" action="/auth/logout">
     <button type="submit">Logout</button>
   </form>
-  <ul>
+  <ul id="checkintool">
     <% allChecks.forEach((checkin) => { %>
         <li>
             <p>  <%- checkin.eventName %> <%- checkin.createdAt %></p>
