@@ -1,26 +1,32 @@
-<body style="background-color:rgb(254, 254, 159);"></body>
+<link rel="stylesheet" href="/stylesheets/style.css" />
+<body></body>
+<div class="bg-container"></div>
+<img src="/images/Logo.png"width="120"/>
 <div id="logout-button">
     <form method="get" action="/auth/logout">
     <button type="submit">Logout</button>
 </form>
 </div>
-<img src="/images/Logo.png"width="120"/>
 <h1>Profile Page</h1>
-<h2>Hello <%= user.username %></h2>
+<h2>Hello <%= user.username %>!</h2>
+<h4>Don't forget to click on the <span style="color:rgb(181, 52, 102)">Check-in</span> and <span style="color:rgb(181, 52, 102)">Check-out</span> buttons at the beginning and at the end of your shift respectively. </h4>
 <br>
 <br>
 <form action="/checks/checkin" method="POST">
-<button type="submit">Checkin</button>
+<button type="submit">Check-in</button>
 </form>
 <br>
 <br>
 <form action="/checks/checkout" method="POST">
-<button type="submit">Checkout</button>
+<button type="submit">Check-out</button>
 </form>
 <br>
 <br>
-<form action="/comments" method="POST">
-    <input type="text" name="content" required placeholder="Leave a comment here..."/>
+<div class="postacomment">
+<form  action="/comments" method="POST">
+    <label class="w3-text-black">Leave a comment here →</label>
+    <input class="input-comment" type="text" name="content" required placeholder="Click to type..."/>
     <button type="submit">Post it</button>
-    </form>
+    </form>    
+</div>
 </form>
