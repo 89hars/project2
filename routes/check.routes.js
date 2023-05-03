@@ -1,47 +1,31 @@
 const express = require('express')
 const router = express.Router()
+const { isLoggedIn } = require('../middleware/route-guard')
 const Event = require('../models/event.model');
 const Employee = require('../models/employee.model');
 
-router.post('/checkin', async (req,res) => {
-    console.log(req.body, "checkin")
-    try {
-      //Fetch the Employee document for the logged-in user
-      const employee = await Employee.findById(req.session.user._id);
-      // Create a new event document with the eventName set to "checkin"
-      const checkin = new Event({eventName: 'checkin', owner: req.session.user._id });
-      //Save the event to the database
-      await checkin.save();
-      // Send a success message
-      const createdAtString = checkin.createdAt.toLocaleString();
-      const successMessage = `${employee.username} has checked in at ${createdAtString} `;
-      res.render('comments', { user: req.session.user.username, successMessage: successMessage });
-      //res.redirect("/comments")
-    } catch (error) {
-      console.error(error);
-      res.status(500).send("Internal server error");
-    }
-  });
+router.post('/checkin', async (req, res) => {
+  try {
+    console.log(req.body, "checked in")
+    const employee = await Employee.findOne({ username: req.session.user.username})
+    await Event.create({ eventName: 'checkin', owner: employee._id })
+    res.redirect('/comments')
+  } catch (error) {
+    console.log(error)
+  }
+})
 
-  router.post('/checkout', async (req,res) => {
-    console.log(req.body, "checkout")
-    try {
-      //Fetch the Employee document for the logged-in user
-      const employee = await Employee.findById(req.session.user._id);
-      // Create a new event document with the eventName set to "checkin"
-      const checkout = new Event({eventName: 'checkout', owner: req.session.user._id });
-      //Save the event to the database
-      await checkout.save();
-      // Send a success message
-      const createdAtString = checkout.createdAt.toLocaleString();
-      const successMessage = `${employee.username} has checked out ${createdAtString} `;
-      res.render('comments', { user: req.session.user.username, successMessage: successMessage });
-      //res.redirect("/comments")
-    } catch (error) {
-      console.error(error);
-      res.status(500).send("Internal server error");
-    }
-  });
+router.post('/checkout', async (req, res) => {
+  try {
+    console.log(req.body, "checked out")
+    const employee = await Employee.findOne({ username: req.session.user.username})
+    await Event.create({ eventName: 'checkout', owner: employee._id })
+    res.redirect('/comments')
+  } catch (error) {
+    console.log(error)
+  }
+})
+
 
 module.exports = router
 
