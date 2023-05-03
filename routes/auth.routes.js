@@ -2,6 +2,7 @@ const express = require('express')
 const Employee = require('../models/employee.model')
 const router = express.Router()
 const bcryptjs = require('bcryptjs')
+const { isLoggedOut, isLoggedIn } = require('../middleware/route-guard')
 const saltRounds = 10
 
 const pwdRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/
@@ -9,14 +10,14 @@ const pwdRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/
 
 // Get to client sigup form
 
-router.get('/signup', (req, res, next) => {
+router.get('/signup', isLoggedOut, (req, res, next) => {
     res.render('./auth/signup')
   })
 
 // Post values given by client in the signup form 
 
-router.post('/signup', async (req, res, next) => {
-  
+router.post('/signup', isLoggedOut, async (req, res, next) => {
+   
   try {
  const newSignup = await Employee.findOne({username: req.body.username})
  console.log(newSignup)
@@ -44,13 +45,13 @@ router.post('/signup', async (req, res, next) => {
 
 // Get to client login form
 
-router.get('/login', (req, res, next) => {
+router.get('/login', isLoggedOut, (req, res, next) => {
     res.render('./auth/login')
 })
 
 // Post for working with the values inside the DB for login
 
-router.post('/login', async (req, res, next) => {
+router.post('/login', isLoggedOut, async (req, res, next) => {
   try {
     const user = await Employee.findOne({ username: req.body.username })
     console.log(user)
@@ -74,18 +75,9 @@ router.post('/login', async (req, res, next) => {
 });
 
 
-router.get('/logout', (req,res, next) => {
-  req.session.destroy(err => {
-    if (err) next(err)
-    res.redirect('/')
-  })
-});
-
-
-
  // Log Out 
-/*
-router.get('/logout', (req, res, next) => {
+
+router.get('/logout', isLoggedIn, (req, res, next) => {
   req.session.destroy(err => {
     if (err) next(err);
     res.clearCookie('connect.sid'); 
@@ -93,6 +85,15 @@ router.get('/logout', (req, res, next) => {
   });
 });
 
+
+/*
+
+router.get('/logout', isLoggedIn, (req, res, next) => {
+  req.session.destroy(err => {
+    if (err) next(err)
+    res.redirect('/')
+  })
+});
 
 */
 

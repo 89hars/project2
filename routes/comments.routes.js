@@ -5,7 +5,7 @@ const Comment = require('../models/comment.model')
 const Employee = require('../models/employee.model')
 
 // Get all comments with author
-router.get('/', async(req, res) => {
+router.get('/', isLoggedIn, async(req, res) => {
   try{
     const allComments = await Comment.find().populate('author')
     console.log(req.session)
@@ -18,7 +18,7 @@ router.get('/', async(req, res) => {
 
 // Create the post in the DB with id from user
 
-  router.post('/', async(req, res, next) => {
+  router.post('/', isLoggedIn, async(req, res, next) => {
     try{
     console.log(req.body, "u are here")
     await Comment.create({content: req.body.content, author: req.session.user._id})
@@ -27,8 +27,6 @@ router.get('/', async(req, res) => {
     console.log(error)
     }
   })
-
-
 
 
 module.exports = router;
