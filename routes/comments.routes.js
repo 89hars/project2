@@ -6,6 +6,7 @@ const Employee = require('../models/employee.model')
 const Event = require('../models/event.model');
 
 
+
 router.get('/', async(req, res) => {
   const allChecks = await Event.find().populate('owner')
     const allComments = await Comment.find().populate('author')
@@ -13,11 +14,16 @@ router.get('/', async(req, res) => {
     res.render("comments", {allComments, allChecks, user: req.session.user.username})
   })
 
+// Create the post in the DB with id from user
 
-  router.post('/', async(req, res, next) => {
-    console.log(req.body, "u are here")
+  router.post('/', isLoggedIn, async(req, res, next) => {
+    try{
+    console.log(req.body, "its working my friend")
     await Comment.create({content: req.body.content, author: req.session.user._id})
     res.redirect('/comments')
+    }catch (error) {
+    console.log(error)
+    }
   })
 
 

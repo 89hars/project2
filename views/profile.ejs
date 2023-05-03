@@ -2,6 +2,11 @@
 <img src="/images/Logo.png"width="120"/>
 <h1>Profile Page</h1>
 <h2>Hello <%= user.username %></h2>
+<form method="get" action="/auth/logout">
+    <button type="submit">Logout</button>
+</form>
+<br>
+<br>
 <form action="/checks/checkin" method="POST">
 <button type="submit">Checkin</button>
 </form>
@@ -12,7 +17,11 @@
 </form>
 <br>
 <br>
-<form id="comment-form" action="/comments" method="POST">
-<input type="text" name="" required placeholder="Leave a comment here...">
-<button type="submit">Submit</button>
+<form action="/comments" method="POST">
+    <input type="text" name="content" required placeholder="Leave a comment here..."/>
+    <button type="submit">Post it!</button>
+    </form>
 </form>
+
+
+  

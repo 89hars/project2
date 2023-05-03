@@ -21,6 +21,8 @@ const projectName = 'project2'
 
 app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`
 
+const { isLoggedOut, isLoggedIn } = require('./middleware/route-guard')
+
 // 👇 Start handling routes here
 
 //home
@@ -30,13 +32,12 @@ app.use('/', indexRoutes)
 
 // log in & sign up
 const authRoutes = require("./routes/auth.routes")
-const { isLoggedOut, isLoggedIn } = require('./middleware/route-guard')
 app.use("/auth", authRoutes)
 
 // Comments
 const commentsRoutes = require("./routes/comments.routes")
 app.use("/comments", commentsRoutes)
-//get allComments
+
 
 // Checkin & Checkout
 const checkRoutes = require("./routes/check.routes")
