@@ -1,0 +1,20 @@
+<h1>Checks</h1>
+
+
+<div id="homeBtnChecks"><form method="GET" action="/">
+    <button type="submit">Home</button>
+  </form>
+  </div>
+
+  
+<form method="get" action="/auth/logout">
+    <button type="submit">Logout</button>
+  </form>
+  <ul id="checkintool">
+    <% allChecks.forEach((checkin) => { %>
+        <li>
+            <p>  <%- checkin.eventName %> <%- checkin.createdAt %></p>
+        </li>
+   <% }) %>
+
+</ul>
