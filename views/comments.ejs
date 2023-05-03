@@ -1,22 +1,19 @@
+
 <body style="background-color:rgb(254, 254, 159);"></body>
-<button><a href="/profile">Go Back to Profile</a></button>
-<br>
-<br>
 <img src="/images/Logo.png"width="120"/>
 <h1>Event Dashboard</h1>
 <h2>Hello <%= user %></h2>
 
-<ul id="commentool">
+<ul id="commentul">
     <% allComments.forEach(comment => { %>
       <li><%= comment.content %> - <%= comment.author.username %></li>
     <% }) %>
   </ul>
-
+  
   <form method="get" action="/auth/logout">
     <button type="submit">Logout</button>
   </form>
-  
-<ul id="checkintool">
+  <ul>
     <% allChecks.forEach((checkin) => { %>
         <li>
             <p>  <%- checkin.eventName %> <%- checkin.createdAt %></p>
@@ -24,5 +21,3 @@
    <% }) %>
 
 </ul>
-
-    
