@@ -5,7 +5,7 @@ const Comment = require('../models/comment.model')
 const Employee = require('../models/employee.model')
 const Event = require('../models/event.model');
 
-
+// Get from db the comments with the authors
 
 router.get('/', async(req, res) => {
     const allComments = await Comment.find().populate('author')
@@ -25,17 +25,17 @@ router.get('/', async(req, res) => {
     }
   })
 
-  /*
+  
   //Delete a comment
   router.post('/delete', isLoggedIn, async(req, res, next) => {
     try{
-    console.log(req.body, "its updating")
-    await Comment.findByIdAndDelete({content: req.body.content, author: req.session.user._id})
-    res.redirect('/delete')
+    console.log(req.body, "trying to delete here")
+    await Comment.findByIdAndDelete(req.params.comment._Id)
+    res.redirect('/comments')
     }catch (error) {
     console.log(error)
     }
-  })*/
+  })
 
 
 module.exports = router;

@@ -1,11 +1,16 @@
 
 <body style="background-color:rgb(254, 254, 159);"></body>
+
   <form method="get" action="/auth/logout">
     <button type="submit">Logout</button>
   </form>
+
 <img src="/images/Logo.png"width="120"/>
+
 <h1>Comments Dashboard</h1>
+
 <h2>Hello <%= user %></h2>
+
 <div id="profile-button"><form method="GET" action="/profile">
   <button type="submit">Go Back to Profile</button>
 </form>
@@ -15,11 +20,16 @@
 <ul id="commentool">
     <% allComments.forEach(comment => { %>
       <% const date = new Date(comment.createdAt) %>
-    <li> - <%= comment.author.username %> Posted: <%= comment.content %> on <%= date.toLocaleString('en-US', { timeZone: 'UTC', month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false }) %> </li>
+    <li> - <%= comment.author.username %> Posted: <%= comment.content %> on <%= date.toLocaleString('en-US', { timeZone: 'UTC', month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false }) %> 
+      <form action="/delete <%= comment._id %>" method="POST">
+        <button>Delete</button>
+      </form></li>
     <% }) %>
 </ul>
 <br>
 <br>
+
+
 <!--
 <div>
   <form method="POST" action="/delete/ /">
