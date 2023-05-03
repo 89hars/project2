@@ -7,7 +7,7 @@ const eventSchema = new Schema(
     eventName: {
       type: String,
       required: true,
-      enum: ["checkin", "checkout"]
+      enum: ["check-in", "check-out"]
     },
     owner: {
       type: Schema.Types.ObjectId,

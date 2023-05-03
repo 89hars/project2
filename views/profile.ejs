@@ -4,7 +4,7 @@
 <img src="/images/Logo.png"width="120"/>
 <div id="logout-button">
     <form method="get" action="/auth/logout">
-    <button type="submit">Logout</button>
+    <button class="logout-button" type="submit">Logout</button>
 </form>
 </div>
 <h1>Profile Page</h1>
@@ -24,9 +24,9 @@
 <br>
 <div class="postacomment">
 <form  action="/comments" method="POST">
-    <label class="w3-text-black">Leave a comment here →</label>
+    <label class="leave-comment">Leave a comment here →</label>
     <input class="input-comment" type="text" name="content" required placeholder="Click to type..."/>
-    <button type="submit">Post it</button>
+    <button class="post-button"type="submit">Post it</button>
     </form>    
 </div>
 </form>
