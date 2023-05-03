@@ -11,7 +11,7 @@ const pwdRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/
 // Get to client sigup form
 
 router.get('/signup', isLoggedOut, (req, res, next) => {
-    res.render('auth/signup')
+    res.render('Auth/signup')
   })
 
 // Post values given by client in the signup form 
@@ -32,10 +32,10 @@ router.post('/signup', isLoggedOut, async (req, res, next) => {
       res.redirect('/login')
 
     } else {
-      res.render('auth/signup', {errorMessage: "Password should be stronger!", data: {username: req.body.username}})
+      res.render('Auth/signup', {errorMessage: "Password should be stronger!", data: {username: req.body.username}})
     }
   } else {
-    res.render('auth/signup', {errorMessage: "User name already exist"})
+    res.render('Auth/signup', {errorMessage: "User name already exist"})
   }
 
   } catch (error) {
@@ -47,7 +47,7 @@ router.post('/signup', isLoggedOut, async (req, res, next) => {
 
 router.get('/login', isLoggedOut, (req, res, next) => {
   console.log(__dirname);
-    res.render('auth/login')
+    res.render('Auth/login')
 })
 
 // Post for working with the values inside the DB for login
@@ -64,11 +64,11 @@ router.post('/login', isLoggedOut, async (req, res, next) => {
         res.redirect('/profile')
       } else {
         
-        res.render('auth/login', { errorMessage: 'Wrong password' })
+        res.render('Auth/login', { errorMessage: 'Wrong password' })
       }
     } else {
       
-      res.render('auth/login', { errorMessage: 'User does not exists' })
+      res.render('Auth/login', { errorMessage: 'User does not exists' })
     }
   } catch (error) {
     console.log(error)
