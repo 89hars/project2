@@ -18,15 +18,15 @@ activitys, list of task, greetings, or simply passing information for general kn
 
 # Data Structure
 
-App running using ExpressJs and MongoDb.
-Middleware Functions to secure routes.
-Regex to define the pattern of the password
-Bycrypt to hash the password
-Three different models to communicate with the DB, and their respective relations.
-Different route files for a more clean efficient presentation
+* App running using ExpressJs and MongoDb.
+* Middleware Functions to secure routes.
+* Regex to define the pattern of the password
+* Bycrypt to hash the password
+* Three different models to communicate with the DB, and their respective relations.
+* Different route files for a more clean efficient presentation
 
 
 # Links
 
-https://module2project.adaptable.app
-https://github.com/89hars/project2
+* https://module2project.adaptable.app
+* https://github.com/89hars/project2
