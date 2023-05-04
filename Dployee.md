@@ -7,6 +7,7 @@ activitys, list of task, greetings, or simply passing information for general kn
 
 
 # Backlog
+* App created using the IronHack Launcher
 * Create differents session with differents functionalitys for employees and admin. 
 * Having the possibility of displaying a profile picture. 
 * Having the possibilitys of uploading documents.
