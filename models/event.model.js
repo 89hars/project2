@@ -1,6 +1,7 @@
 const { Schema, model } = require("mongoose");
 const Employee = require("./employee.model");
-//const { checkout } = require("../app");
+
+// Event Model to track the checks in & out in the DB. Its related to the Employee model.
 
 const eventSchema = new Schema(
   {

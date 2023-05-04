@@ -1,5 +1,7 @@
+
 const { Schema, model, default: mongoose } = require("mongoose");
-//const { checkout } = require("../app");
+
+// Model of the comments to connect with the DB. This model is related to the Employee model by the ref.
 
 const commentSchema = new Schema(
   {
@@ -13,6 +15,7 @@ const commentSchema = new Schema(
         required: true,
     },
 },
+
 // this second object adds extra properties: `createdAt` and `updatedAt`    
 {timestamps: true}
 );

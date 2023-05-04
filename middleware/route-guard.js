@@ -18,7 +18,7 @@ const isLoggedIn = (req, res, next) => {
     }
   };
   
-
+// Export the middleware functions to other parts of the project
 module.exports = {
     isLoggedIn,
     isLoggedOut,

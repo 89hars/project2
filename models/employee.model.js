@@ -1,5 +1,6 @@
 const { Schema, model } = require("mongoose");
 
+// Model of the Employee to track new Employees on the DB, passwordHash just an extra security step.
 
 const employeeSchema = new Schema(
   {
@@ -17,8 +18,7 @@ const employeeSchema = new Schema(
       type: String,
     },
   },
-  {
-    // this second object adds extra properties: `createdAt` and `updatedAt`    
+  {   
     timestamps: true
   }
 );

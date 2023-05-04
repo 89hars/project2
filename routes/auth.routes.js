@@ -7,14 +7,19 @@ const saltRounds = 10
 
 const pwdRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/
 
+/* Here are the routes for the SignUp and the LogIn being handle, all of this routes are pass trough the MiddleWare
+checking if the conditions on the value of the log */
 
-// Get to client sigup form
+
+// Get the signup form for the client
 
 router.get('/signup', isLoggedOut, (req, res, next) => {
     res.render('Auth/signup')
   })
 
-// Post values given by client in the signup form 
+/* Post values given by client in the signup form. Here the password will recive a predeterminated number of random
+strings and will be hashed, also the quality of the password is determinated by the regex, and the username is check
+in the DB*/
 
 router.post('/signup', isLoggedOut, async (req, res, next) => {
    
@@ -43,14 +48,16 @@ router.post('/signup', isLoggedOut, async (req, res, next) => {
   }
 })
 
-// Get to client login form
+// Get the login form for the User
 
 router.get('/login', isLoggedOut, (req, res, next) => {
   console.log(__dirname);
     res.render('Auth/login')
 })
 
-// Post for working with the values inside the DB for login
+/* Post for working with the values inside the DB for login. Here the encypted password is matched with the hashed
+ password that are existing in the DB, this way we can't give a false value. */
+
 
 router.post('/login', isLoggedOut, async (req, res, next) => {
   try {
@@ -74,31 +81,6 @@ router.post('/login', isLoggedOut, async (req, res, next) => {
     console.log(error)
   }
 });
-
-
- // Log Out 
-
-router.get('/logout', isLoggedIn, (req, res, next) => {
-  req.session.destroy(err => {
-    if (err) next(err);
-    res.clearCookie('connect.sid'); 
-    res.redirect('/'); 
-  });
-});
-
-
-/*
-
-router.get('/logout', isLoggedIn, (req, res, next) => {
-  req.session.destroy(err => {
-    if (err) next(err)
-    res.redirect('/')
-  })
-});
-
-*/
-
-
 
 
 module.exports = router

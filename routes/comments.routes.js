@@ -5,7 +5,7 @@ const Comment = require('../models/comment.model')
 const Employee = require('../models/employee.model')
 const Event = require('../models/event.model');
 
-// Get from db the comments with the authors
+// Get from db the comments with the authors fiel
 
 router.get('/', async(req, res) => {
     const allComments = await Comment.find().populate('author')
@@ -26,7 +26,8 @@ router.get('/', async(req, res) => {
   })
 
   
-  //Delete a comment
+  //Delete a comment, this is linked to a button on the views. 
+  
   router.post('/delete/:id', isLoggedIn, async(req, res, next) => {
     try{
     console.log(req.body, "trying to delete here")
