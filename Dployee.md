@@ -7,13 +7,13 @@ activitys, list of task, greetings, or simply passing information for general kn
 
 
 # Backlog
-Create differents session with differents functionalitys for employees and admin. 
-Having the possibility of displaying a profile picture. 
-Having the possibilitys of uploading documents.
-Creating a channel for direct messagges. 
-Creating a new section for users where they can writte personal notes and reminders related to their work.
-Having the possibility of displaying an interactive calendar to make more effective the communication about important dates.
-Further Styling.
+* Create differents session with differents functionalitys for employees and admin. 
+* Having the possibility of displaying a profile picture. 
+* Having the possibilitys of uploading documents.
+* Creating a channel for direct messagges. 
+* Creating a new section for users where they can writte personal notes and reminders related to their work.
+* Having the possibility of displaying an interactive calendar to make more effective the communication about important dates.
+* Further Styling.
 
 
 # Data Structure
