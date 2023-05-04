@@ -24,7 +24,6 @@ router.get('/', async(req, res) => {
     console.log(error)
     }
   })
-
   
   //Delete a comment
   router.post('/delete/:id', isLoggedIn, async(req, res, next) => {

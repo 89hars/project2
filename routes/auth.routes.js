@@ -32,10 +32,10 @@ router.post('/signup', isLoggedOut, async (req, res, next) => {
       res.redirect('/login')
 
     } else {
-      res.render('Auth/signup', {errorMessage: "Password should be stronger!", data: {username: req.body.username}})
+      res.render('Auth/signup', {errorMessage: "Password should be stronger! Must contain at least 8 characters, one upper case letter and a symbol.", data: {username: req.body.username}})
     }
   } else {
-    res.render('Auth/signup', {errorMessage: "User name already exist"})
+    res.render('Auth/signup', {errorMessage: "User name already exists"})
   }
 
   } catch (error) {

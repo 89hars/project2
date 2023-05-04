@@ -37,14 +37,6 @@ router.post('/checkout', async (req, res) => {
 
 
 
-/*
-router.get('/', async(req, res) => {
-  const allChecks = await Event.find().populate('owner')
-    console.log(req.session)
-    res.render("checks", {allChecks, user: req.session.user.username})
-  })
-
-  */
 
 module.exports = router
 

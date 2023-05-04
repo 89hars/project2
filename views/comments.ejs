@@ -20,7 +20,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-auto-rows: minmax(100px, auto);
-    grid-gap: 10px;
+    grid-gap: 20px;
     list-style-type: decimal;
     list-style-position: inside;
 
@@ -28,7 +28,8 @@
 
   #commentool li {
     border: 2px solid rgba(181, 52, 101, 0.336);
-    padding: 10px;
+    padding: 20px;
+    margin-inline-end: auto;
     background-color: rgb(240, 240, 240);
 
   }
@@ -36,7 +37,7 @@
 <ul id="commentool">
     <% allComments.forEach(comment => { %>
       <% const date = new Date(comment.createdAt) %>
-    <li> <span class="user-span" style="color:rgb(181, 52, 102)"> <%= comment.author.username %></span> Posted: <span class="comment-span" style="color:rgb(0, 0, 0)"><%= comment.content %></span> on <%= date.toLocaleString('en-US', { timeZone: 'UTC', month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false }) %> 
+    <li> <span class="user-span" style="color:rgb(181, 52, 102)"> <%= comment.author.username %></span> Posted: <span class="comment-span" style="color:rgb(0, 0, 0)"><%= comment.content %></span> <span class="datetime" > on <%= date.toLocaleString('en-US', { timeZone: 'UTC', month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false }) %></span>
       <form action="/comments/delete/<%= comment._id %>" method="POST">
         <br>
         <br>
