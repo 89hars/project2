@@ -4,7 +4,7 @@
 A simple Web App for working environments that helps users controlling the starting and ending of their working shifts by displaying the information in a minimalistic and effective way. It also has the functionality of being a virtual dashboard, where co-workers can post messages regarding activities, lists of tasks, greetings, or simply sharing information for general knowledge.
 
 
-Backlog
+# Backlog
 * App created using the IronHack Launcher
 * Create different sessions with different functionality for employees and administrators.
 * Having the possibility of displaying a profile picture. 
