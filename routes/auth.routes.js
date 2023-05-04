@@ -34,7 +34,7 @@ router.post('/signup', isLoggedOut, async (req, res, next) => {
       
       await Employee.create({username: req.body.username, passwordHash: passwordHash})
       console.log("New employee", newSignup)
-      res.redirect('/login')
+      res.redirect('login')
 
     } else {
       res.render('Auth/signup', {errorMessage: "Password should be stronger! Must contain at least 8 characters, one upper case letter and a symbol.", data: {username: req.body.username}})
