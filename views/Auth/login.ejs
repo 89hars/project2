@@ -3,14 +3,14 @@
 <div class="bg-container"></div>
 <img src="/images/Logo.png"width="120"/>
 <div id="homeBtnLogin"><form method="GET" action="/">
-  <button type="submit">Go Back to Home</button>
+  <button class="goback-button" type="submit">Go Back to Home</button>
 </form>
 </div>
 <div id="form">
-    <h2>Login!</h2>
+    <h2>Login To Your Existing Account</h2>
     <form action="/auth/login" method="POST">
    
-      <label> Username
+      <label> Name and Surname
         <input type="text" name="username" placeholder="username" />
       </label>
    
@@ -18,7 +18,7 @@
         <input type="password" name="password" placeholder="********" />
       </label>
    
-      <button type="submit">Login</button>
+      <button class="login-button" type="submit">Login</button>
       <% if (typeof errorMessage !== 'undefined') { %>
         <p style="color: red"><%= errorMessage %></p>
         <% } %>

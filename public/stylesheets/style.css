@@ -4,7 +4,7 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .bg-container {
-  text-align: center;
+  text-align:center;
   background-image: url("/images/Logo.png");
   opacity: 50%;
   margin: auto;
@@ -42,8 +42,81 @@ button:hover {
 .input-comment {
   width: 500px;
   height: 100px;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border: 2px solid rgba(181, 52, 101, 0.336);
+  border-radius: 4px;
+  background-color: rgb(240, 240, 240);
+  resize: auto;
+  text-align: left;
+  vertical-align: top;
+}
+.text-box {
+  width: 500px;
+  height: 150px;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border: 2px solid rgba(181, 52, 101, 0.336);
+  border-radius: 4px;
+  background-color: rgb(240, 240, 240);
+  resize: auto;
+}
+
+.text-box textarea {
+  border: none; 
+  width: 100%; 
+  height: 100%; 
+  box-sizing: border-box; /* includes the padding and border in the textarea's dimensions */
+  background-color: rgb(240, 240, 240);
+  resize: auto;
 }
 
 .delete-button {
-  padding: 6px 18px;
+  padding: 4px 8px;
+  font-size: 12px;
+
 }
+
+.post-button {
+  padding: 4px 8px;
+  font-size: 12px;
+  margin-left: 25%;
+  margin-top: 10px;
+}
+
+.goback-button {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.logout-button {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.signup-button {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.login-button {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.user-span {
+  font-weight: bold;
+}
+
+.comment-span {
+  font-weight: bold;  
+}
+
+.checks-span {
+  font-weight: bold;  
+}
+
+.datetime {
+  font-size: 12px;
+}
+

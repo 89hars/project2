@@ -24,7 +24,6 @@ router.get('/', async(req, res) => {
     console.log(error)
     }
   })
-
   
   //Delete a comment, this is linked to a button on the views. 
   

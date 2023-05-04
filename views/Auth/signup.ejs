@@ -4,12 +4,12 @@
 <img src="/images/Logo.png"width="120"/>
 <div id="form"><div id="homeBtnSignup">
   <form method="GET" action="/">
-  <button type="submit">Go Back to Home</button>
+  <button class="goback-button" type="submit">Go Back to Home</button>
 </form>
 </div>
-    <h2>Signup!</h2>
+    <h2>Signup To Create A New Employee Account</h2>
     <form action="/auth/signup" method="POST">
-      <label> Username
+      <label> Name and Surname
         <input type="text" name="username" required placeholder="username" />
       </label>
    
@@ -17,7 +17,7 @@
         <input type="password" name="password" required placeholder="********" />
       </label>
    
-      <button type="submit">Create Employee Account</button>
+      <button class="signup-button" type="submit">Create Account</button>
       <% if (typeof errorMessage !== 'undefined') { %>
         <p style="color: red"><%= errorMessage %></p>
         <% } %>

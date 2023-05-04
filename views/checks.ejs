@@ -2,21 +2,41 @@
 <body></body>
 <div class="bg-container"></div>
 <img src="/images/Logo.png"width="120"/>
-<form method="get" action="/auth/logout">
-    <button type="submit">Logout</button>
+<form method="get" action="/logout">
+    <button class="logout-button"type="submit">Logout</button>
   </form>
-<h1>Checks</h1>
+<h1>Shift Checks</h1>
 <h2>Hello <%= user %>!</h2>
 <div id="profile-button"><form method="GET" action="/profile">
-    <button type="submit">Go Back to Profile</button>
+    <button class="goback-button" type="submit">Go Back to Profile</button>
   </form>
   </div>
-
+  <style>
+    #checkintool {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-auto-rows: minmax(100px, auto);
+      grid-gap: 10px;
+      list-style-type: decimal;
+      list-style-position: inside;
+  
+    }
+  
+    #checkintool li {
+      border: 2px solid rgba(181, 52, 101, 0.336);
+      padding: 10px;
+      margin-right: 20px;
+      background-color: rgb(240, 240, 240);
+      background-image: url(/images/check1.png);
+      background-size: 10%; /* sets the size of the image relative to the container */
+      background-repeat: no-repeat;
+      background-position: right; /* centers the image within the container */
+  
+    }
+  </style>
   <ul id="checkintool">
     <% allChecks.forEach((checkin) => { %>
       <% const date = new Date(checkin.createdAt) %>
-    <li>
-            <p> <%= user %> has made  <%- checkin.eventName %> on <%= date.toLocaleString('en-US', { timeZone: 'UTC', month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false }) %> </p>
-    </li>
+    <li><p> <span class="user-span" style="color:rgb(181, 52, 102)"><%= user %></span> has made <span class="checks-span" style="color:rgb(0, 0, 0)"> <%- checkin.eventName %> </span> on <%= date.toLocaleString('en-US', { timeZone: 'UTC', month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false }) %> </p></li>
    <% }) %>
 </ul>

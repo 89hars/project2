@@ -9,7 +9,7 @@
 </div>
 <h1>Profile Page</h1>
 <h2>Hello <%= user.username %>!</h2>
-<h4>Don't forget to click on the <span style="color:rgb(181, 52, 102)">Check-in</span> and <span style="color:rgb(181, 52, 102)">Check-out</span> buttons at the beginning and at the end of your shift respectively. </h4>
+<h4>Don't forget to click on the <span style="color:rgb(181, 52, 102)">Check-in</span> and <span style="color:rgb(181, 52, 102)">Check-out</span> buttons at the beginning and ending of your shift respectively. </h4>
 <br>
 <br>
 <form action="/checks/checkin" method="POST">
@@ -20,13 +20,25 @@
 <form action="/checks/checkout" method="POST">
 <button type="submit">Check-out</button>
 </form>
+<br><br><br><br><br>
+<div id="comments-button"><form method="GET" action="/comments">
+    <button class="gocomments-button" type="submit">Go to Comments Dashboard</button>
+  </form>
+  </div>
 <br>
 <br>
 <div class="postacomment">
 <form  action="/comments" method="POST">
-    <label class="w3-text-black">Leave a comment here →</label>
-    <input class="input-comment" type="text" name="content" required placeholder="Click to type..."/>
-    <button type="submit">Post it</button>
+    <div>
+        <label class="leave-comment">Leave a comment here </label>    
+    </div>
+    <br>
+    <div class="text-box">
+    <textarea class="input-comment" type="text" name="content" placeholder="Click here to type..."></textarea>    
+    </div>
+    <div>
+    <button class="post-button"type="submit">Post it</button>        
+    </div>
     </form>    
 </div>
 </form>
