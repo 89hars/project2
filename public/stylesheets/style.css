@@ -85,12 +85,12 @@ button:hover {
 }
 
 .goback-button {
-  padding: 4px 8px;
+  padding: 4px 20px;
   font-size: 12px;
 }
 
 .logout-button {
-  padding: 4px 8px;
+  padding: 4px 24px;
   font-size: 12px;
 }
 
