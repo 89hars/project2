@@ -8,14 +8,14 @@ const Employee = require('../models/employee.model');
 
  router.get('/', async(req, res) => {
   const allChecks = await Event.find().populate('owner')
-    console.log(req.session)
-    res.render("checks", {allChecks, user: req.session.user.username})
+    console.log(allChecks)
+    res.render("checks", {allChecks: allChecks, user: req.session.user})
   })
 
 
 // Post to create historial of "check in" on the DB with the name of the employee.
 
-router.post('/checkin', async (req, res) => {
+router.post('/checkin', isLoggedIn, async (req, res) => {
   try {
     console.log(req.body, "checked in")
     const employee = await Employee.findOne({ username: req.session.user.username})
