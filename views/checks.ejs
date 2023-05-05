@@ -6,7 +6,7 @@
     <button class="logout-button"type="submit">Logout</button>
   </form>
 <h1>Shift Checks</h1>
-<h2>Hello <%= user %>!</h2>
+<h2>Hello <%= user.username %>!</h2>
 <div id="profile-button"><form method="GET" action="/profile">
     <button class="goback-button" type="submit">Go Back to Profile</button>
   </form>
@@ -40,3 +40,4 @@
     <li><p> <span class="user-span" style="color:rgb(181, 52, 102)"><%= checkin.owner.username %></span> has made <span class="checks-span" style="color:rgb(0, 0, 0)"> <%- checkin.eventName %> </span> on <%= date.toLocaleString('en-US', { timeZone: 'UTC', month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false }) %> </p></li>
    <% }) %>
 </ul>
+<br>
